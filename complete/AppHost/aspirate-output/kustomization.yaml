@@ -1,0 +1,13 @@
+namespace: weatherhub
+
+resources:
+- cache
+- api
+- myweatherhub
+- namespace.yaml
+- dashboard.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+
