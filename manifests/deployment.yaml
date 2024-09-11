@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherhub
+  labels:
+    app: weatherhub
+    kubernetes.azure.com/generator: devhub
+  namespace: weatherapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatherhub
+  template:
+    metadata:
+      labels:
+        app: weatherhub
+    spec:
+      containers:
+        - name: weatherhub
+          image: arteiroacr.azurecr.io/weatherhubweb:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
